@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character counter</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="section">
+        <div class="container">
+            <h1>Real-time Character Counter</h1>
+            <textarea name="" id="txt" placeholder="Please write your text here..."></textarea>
+            <div id="btm">
+                <p id="p1">Total Characters: 0</p>
+                <p id="p2">Remaining: 50</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let textarea = document.getElementById('txt');
+        let Totchar = document.getElementById('p1');
+        let Remaining = document.getElementById('p2');
+        let maxChars = 50;
+
+        textarea.addEventListener('input' ,() => {
+            let textLength = textarea.value.length;
+            Totchar.innerText = `Total Characters: ${textLength}`;
+            Remaining.innerText = `Remaining: ${maxChars - textLength}`;
+
+            if(textLength > maxChars){
+                alert("Limit Reached");
+            }
+        });
+    </script>
+</body>
+</html>
